@@ -1,25 +1,30 @@
 <script setup>
+import { computed } from 'vue'
 const props = defineProps({
   field: String,
-  form: Object,
+  modelValue: Object,
   label: String
 })
+
+const theModel = computed(() => props.modelValue)
+
 const blur = () => {
-  props.form.touch(props.field)
-  props.form.validate(props.field)
+  props.modelValue.touch(props.field)
+  props.modelValue.validate(props.field)
 }
 const validate = () => {
-  if (props.form.touched[props.field]) {
-    props.form.validate(props.field)
+  if (props.modelValue.touched[props.field]) {
+    props.modelValue.validate(props.field)
   }
 }
+
 </script>
 
 <template>
-  <label for="">{{ label ? label : form.labels[field] }}</label>
-  <input type="text" v-model="form[field]" @blur="blur" @input="validate" />
+  <label for="">{{ label ? label : modelValue.labels[field] }}</label>
+  <input type="text" v-model="theModel[field]" @blur="blur" @input="validate" />
   <div class="hint"></div>
   <div class="error">
-    {{ form.errors[field] }}
+    {{ modelValue.errors[field] }}
   </div>
 </template>

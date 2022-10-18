@@ -25,7 +25,7 @@ const form = useForm({
   ]
 })
 
-form.load({email:'sssss',gg:'aaa','password':'14'})
+form.load({ email: 'sssss', gg: 'aaa', password: '14' })
 const submit = () => {
   form.validate()
 }
@@ -34,9 +34,9 @@ const submit = () => {
 <template>
   {{ form }}
   <form action="" @submit.prevent="submit">
-    <inputField label="email" :form="form" field="email" />
-    <inputField :form="form" field="password" />
-    <inputField :form="form" field="bug" />
+    <inputField label="email" v-model="form" field="email" />
+    <inputField v-model="form" field="password" />
+    <inputField v-model="form" field="bug" />
     <input type="submit" />
   </form>
 </template>
