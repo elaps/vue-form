@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@/uses/form'
-import inputField from '@/components/inputField.vue'
+import inputField from '@/components/inputFieldOPtions.vue'
 
 const form = useForm({
   fields: { email: 'Почта', password: 'Пароль', bug: 'test' },

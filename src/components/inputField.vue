@@ -5,19 +5,18 @@ const props = defineProps({
   modelValue: Object,
   label: String
 })
-
 const theModel = computed(() => props.modelValue)
 
 const blur = () => {
   props.modelValue.touch(props.field)
   props.modelValue.validate(props.field)
 }
+
 const validate = () => {
   if (props.modelValue.touched[props.field]) {
     props.modelValue.validate(props.field)
   }
 }
-
 </script>
 
 <template>
